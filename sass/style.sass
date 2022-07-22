@@ -1,0 +1,642 @@
+// Импорт шрифта
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap')
+
+// Переменные и миксины
+
+$white: #ffffff
+$black: #000000
+$gray: #AAAAAA
+$orange: #FF965B
+$green: #57BE6C
+$blue: #0645AD
+
+@mixin container($padding)
+    padding: $padding
+    max-width: 1140px
+    margin: 0 auto
+
+@mixin green-btn($padding, $font-size, $margin)
+    padding: $padding
+    margin: $margin
+    color: $white
+    background-color: $green
+    font-size: $font-size
+    border: 1px solid transparent
+    border-radius: 30px
+    @content
+
+
+// Стили к всем элементам сайта
+
+*
+    margin: 0
+    padding: 0
+    font-family: 'Poppins', sans-serif
+    font-family: 'Roboto', sans-serif
+
+.wrapper
+    min-width: 1440x
+
+button
+    cursor: pointer
+
+.green_btn
+    @include green_btn(4px 24px, 20px, 0px)
+        transition: 1s ease
+        display: flex
+        align-items: center
+        &:hover
+            background-color: $orange
+            transition: 1s ease
+
+.more_btn
+    padding: calc(15px + (20 - 15) * ((100vw - 320px) / (1440 - 320)))
+    background-color: #ECECEC
+    border: 1px solid transparent
+    border-radius: 20px
+
+.hidden
+    display: none
+
+.orange_btn
+    padding: calc(10px + (20 - 10) * ((100vw - 320px) / (1440 - 320))) calc(37px + (74 - 37) * ((100vw - 320px) / (1440 - 320)))
+    color: $white
+    background-color: $orange
+    border: 1px solid transparent 
+    border-radius: 20px
+    font-size: calc(16px + (24 - 16) * ((100vw - 320px) / (1440 - 320)))
+    transition: 1s ease
+    &:hover
+        background-color: $green
+        transition: 1s ease
+
+.send_btn
+    padding: 13px 77px
+    font-size: 14px
+    color: $black
+    background-color: $white
+    border: 1px solid transparent
+    border-radius: 15px
+
+.primary_text
+    font-size: calc(14px + (22 - 14) * ((100vw - 320px) / (1440 - 320)))
+    color: $blue
+    text-decoration: dashed
+
+.large_text
+    font-size: calc(32px + (38 - 32) * ((100vw - 320px) / (1440 - 320)))
+    color: $black
+    letter-spacing: 0.035em
+
+.gray_text
+    font-size: calc(14px + (22 - 14) * ((100vw - 320px) / (1440 - 320)))
+    color: $gray
+    letter-spacing: 0.02em
+
+a
+    transition: 1s ease
+    &:hover
+        color: $orange
+        transition: 1s ease
+
+// Основные стили
+
+// Стили шапки сайта
+
+.header
+    @include container(45px 9px 0px 9px)
+    &_inner
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &_menu        
+        display: flex
+        align-items: center
+    &_list
+        margin: 0px 70px 0px 0px
+        width: 462px
+        display: flex
+        justify-content: space-between
+        &_item
+            list-style: none
+            font-size: 20px
+            color: $black
+            text-decoration: dashed
+            letter-spacing: 0.02em    
+    &_burger
+        display: none    
+.burger_btn
+    display: none
+    &_btn
+        @include green-btn(0px 24px, 20px, 0px 0px 0px 70px)
+        img
+            padding: 0px 0px 0px 10px
+
+//  Стили секции Приветсвия
+
+.welcome
+    @include container(153px 9px 0px 9px) 
+    &_inner
+        display: flex
+        justify-content: space-between
+    &_content
+        width: 100%
+        background-image: url(../assets/images/welcome.webp)
+        background-size: contain
+        background-position: right top
+        background-repeat: no-repeat
+    &_title
+        font-size: calc(24px + (54 - 24) * ((100vw - 320px) / (1440 - 320)))
+        letter-spacing: 0.02em
+        color: #000000
+    &_desc
+        padding: 30px 0px 0px 0px
+        font-size: 16px
+        letter-spacing: 0.02em
+        color: #AAAAAA
+    &_social
+        width: 248px
+        padding: 43px 0px 0px 0px
+        display: flex
+        justify-content: space-between
+        a
+            transition: 1s ease
+            &:hover
+                transition: 1s ease
+                transform: translateY(-25%)
+    &_btn
+        @include green-btn(calc(10px + (17 - 10) * ((100vw - 320px) / (1440 - 320))) calc(32px + (64 - 32) * ((100vw - 320px) / (1440 - 320))), calc(16px + (24 - 16) * ((100vw - 320px) / (1440 - 320))), 58px 0px 0px 0px)
+
+// Стили секции Поиска
+
+.search
+    @include container(172px 9px 0px 9px)
+    &_inner
+        max-width: 1000px
+        margin: 0 auto
+    &_form
+        padding: 20px 19px 20px 77px
+        display: flex
+        justify-content: space-between
+        border: 1.5px solid #222222
+        border-radius: 25px
+    &_select
+        display: flex
+        flex-direction: column
+    &_subtitle
+        font-size: 18px
+        color: #aaaaaa
+    &_option
+        margin: 4px 0px 0px -5px
+        font-size: 24px
+        color: #222222
+        border: 1px solid transparent
+    &_btn
+        @include green-btn(calc(10px + (20 - 10) * ((100vw - 320px) / (1440 - 320))) calc(47px + (94 - 47) * ((100vw - 320px) / (1440 - 320))), 24px, 0px)
+            border-radius: 20px
+
+// Стили секции Блюда
+
+.foods
+    @include container(132px 9px 0px 9px)
+    &_inner
+        display: flex
+        flex-direction: column
+    &_text
+        display: flex
+        align-items: flex-end
+        justify-content: space-between
+    &_content
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+    &_item
+        width: 515px
+        padding: 67px 0px 0px 0px
+    &_img_1
+        background-image: url(../assets/images/foods-1.webp)
+        background-size: contain
+        background-repeat: no-repeat
+        max-width: 515px
+        min-height: 450px
+        position: relative
+    &_img_2
+        background-image: url(../assets/images/foods-2.webp)
+        background-size: contain
+        background-repeat: no-repeat
+        max-width: 515px
+        min-height: 450px
+        position: relative 
+    &_mark
+        position: absolute
+        max-width: 89px
+        z-index: 3
+        top: 20px
+        right: 25px
+        cursor: pointer
+    &_desc
+        max-width: 515px
+        display: flex
+        justify-content: space-between
+        &_rate
+            display: flex
+            flex-direction: column
+    &_rate,&_number
+        list-style: none
+        display: inline-flex
+        font-size: 22px
+        letter-spacing: 0.02em
+        color: #000000
+    &_number
+        padding: 0px 0px 0px 30px
+
+// Стили секции о Шефе
+
+.chef
+    @include container(165px 9px 0px 9px)
+    &_inner
+        display: flex
+        justify-content: space-between
+    &_about_item
+        display: flex
+    &_about_img
+        padding: 55px 0px 0px 0px
+    &_title
+        padding: 0px 0px 26px 0px
+    &_subject
+        padding: 55px 0px 0px 55px
+        font-size: calc(20px + (24 - 20) * ((100vw - 320px) / (1440 - 320)))
+    &_desc_bottom
+        padding: 9px 0px 0px 55px
+        font-size: calc(14px + (22 - 14) * ((100vw - 320px) / (1440 - 320)))
+    &_more
+        padding: 45px 0px 0px 0px
+        display: flex
+        justify-content: center
+
+// Стили секции Отзывы
+
+.reviews
+    @include container(164px 9px 0px 9px)
+    &_inner
+        display: flex
+        justify-content: space-between
+    &_title
+        padding: 7px 0px 0px 0px
+    &_desc
+        padding: 43px 0px 0px 0px
+    &_content_bottom
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 108px 0px 0px 0px
+    &_user_left
+        display: flex
+        align-items: flex-start
+    &_user_desc
+        padding: 22px
+    &_user_title
+        font-size: 24px
+        letter-spacing: 0.02em
+    &_user_subtitle
+        font-size: 14px
+        letter-spacing: 0.02em
+        color: #AAAAAA
+    &_user_right
+        display: flex
+        align-items: flex-end
+    &_rate_title
+        font-size: 18px
+        letter-spacing: 0.02em
+    &_list
+        list-style: none
+        display: flex
+    &_rate_number
+        padding: 0px 0px 0px 30px
+        font-size: 22px
+        letter-spacing: 0.02em
+
+//  Стили секции Предложения
+      
+.sentence
+    @include container(164px 9px 179px 9px)
+    &_inner
+        display: flex
+        justify-content: space-between
+    &_content
+        width: 60%
+        &_center
+            padding: 80px 0px 80px 0px
+            display: flex
+            align-items: center
+            justify-content: space-between
+        &_bottom
+            padding: 12px 13px 13px 49px
+            display: flex
+            align-items: center
+            justify-content: space-between
+            border: 1.5px solid $black
+            border-radius: 30px
+    &_desc
+        padding: 29px 0px 0px 0px
+    &_user
+        border-radius: 50%
+        border: 3px solid $white
+        &_1
+            transition: 1s ease
+            &:hover
+                transition: 1s ease
+                transform: translateX(-25%)
+        &_2
+            transition: 1s ease
+            transform: translateX(-50%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(-75%)
+        &_3
+            transition: 1s ease
+            transform: translateX(-100%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(-125%)
+        &_4
+            transition: 1s ease
+            transform: translateX(-150%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(-175%)
+    &_numbers
+        letter-spacing: 0.02em
+        color: #222222
+    &_subject
+        font-size: 24px
+    &_right
+        margin: 0px 0px -4px 29px
+
+// Стили Подвала сайта
+    
+.footer
+    @include container(79px 9px 73px 9px)  
+    &_bg
+        background-color: $green      
+    &_inner
+        background-color: $green
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+    &_text
+        display: flex
+        flex-direction: column
+    &_desc
+        padding: 33px 0px 58px 0px
+        font-size: 18px
+        color: $white
+    &_link
+        font-size: 18px
+        text-decoration: dashed
+        color: $white
+    &_title
+        padding: 0px 0px 10px 0px
+        font-size: 24px
+        letter-spacing: 0.03em
+        color: $white
+    &_list
+        list-style: none
+        &_item
+            padding: 15px 0px 0px 0px
+            font-size: 18px
+            text-decoration: dashed
+            letter-spacing: 0.02em
+            color: $white
+    &_ask
+        display: flex
+        align-items: center
+        flex-direction: column
+        &_form
+            display: flex
+            align-items: center
+            flex-direction: column
+            margin: 15px 0px 0px 0px
+            padding: 24px 23px 16px 23px
+            background-color: #9FDAAB
+            border-radius: 20px
+        &_field
+            padding: 11px
+            max-width: 200px
+            min-height: 177px
+            resize: none
+            outline: 1px solid transparent
+            border: 1px solid transparent
+            border-radius: 15px
+            background-color: $white
+    &_btn
+        margin: 23px 0px 0px 0px
+@media (max-width: 1056px )
+    .foods_content
+        display: flex
+        align-items: center        
+        justify-content: center
+    
+@media (max-width: 942px)
+    .chef_inner
+        display: flex
+        align-items: center
+        flex-direction: column
+    .chef_content_top
+        text-align: center
+        padding: 30px 0px 0px 0px
+    .chef_subtitle
+        padding: 30px 0px 0px 0px
+    .reviews_inner
+        display: flex
+        align-items: center
+        flex-direction: column
+        text-align: center
+    .sentence_inner
+        display: flex
+        align-items: center
+        flex-direction: column
+        text-align: center
+    .sentence_title
+        padding: 30px 0px 0px 0px
+    
+@media (max-width: 920px)
+    .sentence_users
+        width: 100%
+        display: flex
+        justify-content: center
+    .sentence_user
+        &_1
+            transition: 1s ease
+            transform: translateX(75%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(50%)
+        &_2
+            transition: 1s ease
+            transform: translateX(25%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(0%)
+        &_3
+            transition: 1s ease
+            transform: translateX(-25%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(-50%)
+        &_4
+            transition: 1s ease
+            transform: translateX(-75%)
+            &:hover
+                transition: 1s ease
+                transform: translateX(-100%)
+
+@media (max-width: 768px)
+    .header_burger
+        display: flex
+        align-items: center
+        flex-direction: column
+        transition: 1s ease
+    .header_list          
+        display: none
+        &_new
+            margin: 0 auto 
+        &_item_new            
+            text-align: center
+            padding: 10px 0px
+    .burger_btn
+        display: flex
+        width: 64px
+        height: 64px
+        background-color: transparent 
+        border: 1px solid transparent
+        cursor: pointer
+    .welcome_content
+        height: 600px
+        background-position: bottom center
+        display: flex
+        align-items: center
+        flex-direction: column
+        text-align: center
+    .search_inner
+        max-width: 400px
+        margin: 0 auto
+    .search_form
+        display: flex
+        align-items: center
+        flex-direction: column
+        padding: 30px 0px
+    .search_select
+        padding: 0px 0px 15px 0px
+    .foods_content
+        display: flex
+        align-items: center
+        flex-direction: column
+    .foods_text
+        display: flex
+        align-items: center
+        text-align: center
+        flex-direction: column
+    .foods_text_right
+        display: none
+    .visible_more
+        display: flex
+        padding: 30px 0px 0px 0px
+    .foods_item
+        max-width: 300px
+    .foods_img_1
+        background-image: url(../assets/images/foods-1.webp)
+        background-size: contain
+        background-repeat: no-repeat
+        max-width: 300px
+        position: relative
+    .foods_desc
+        max-width: 300px
+        margin: -180px auto 0px auto
+        display: flex
+        align-items: center
+        flex-direction: column
+    .foods_mark
+        max-width: 44.5px
+    .chef_inner
+        display: flex
+        align-items: center
+        flex-direction: column
+    .chef_content
+        padding: 30px 0px 0px 0px
+        &_top
+            text-align: center
+        &_bottom
+            display: flex
+            flex-direction: column
+            justify-content: center
+    .chef_img img
+        max-width: 300px
+    .reviews_inner
+        display: flex
+        flex-direction: column
+    .reviews_content_top
+        display: flex
+        align-items: center
+        flex-direction: column
+        text-align: center
+    .reviews_content_bottom
+        display: flex
+        align-items: center
+        flex-direction: column
+    .reviews_img img        
+        display: flex
+        align-items: center
+        max-width: 300px
+        padding: 30px 0px 0px 0px
+        margin: 0 auto
+    .sentence_inner
+        display: flex
+        flex-direction: column
+    .sentence_img img
+        display: flex
+        align-items: center
+        max-width: 300px
+        margin: 0 auto
+    .sentence_content
+        width: 100%
+        display: flex
+        align-items: center
+        flex-direction: column
+        &_top
+            display: flex
+            align-items: center
+            flex-direction: column
+            text-align: center
+        &_center
+            display: flex
+            align-items: center
+            flex-direction: column
+            text-align: center
+        &_bottom
+            padding: 15px
+            display: flex
+            align-items: center
+            flex-direction: column
+            text-align: center
+    .sentence_right
+        margin: 15px 0 -4px 0
+        padding: 0px
+    .arrow_down
+        transform: rotate(90deg)
+    .footer_inner
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+    .footer_menu
+        padding: 30px 0px 0px 0px
+    .footer_ask
+        padding: 30px 0px 0px 0px
+
+@media (max-width: 320px)
+    .welcome_social
+        img
+            width: 45px
+            height: 41.25px
